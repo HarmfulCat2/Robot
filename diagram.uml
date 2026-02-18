@@ -1,0 +1,33 @@
+@startuml
+left to right direction
+title Use Case Diagram – Система робот с камерой
+
+actor "Человек" as Human
+actor "Сервер" as Server
+
+rectangle "Система (Комната)" {
+
+  (Установить камеру в комнате) as UC1
+  (Разместить робота в комнате) as UC2
+  (Поставить стаканчик в комнате) as UC3
+  (Поставить стаканчик на робота) as UC4
+  (Запустить программу) as UC5
+
+  (Определить местоположение робота) as UC7
+  (Определить местоположение стаканчика) as UC8
+  (Построить маршрут) as UC9
+  (Управлять движением робота) as UC10
+}
+
+Human --> UC1
+Human --> UC2
+Human --> UC3
+Human --> UC4
+Human --> UC5
+
+Server --> UC7
+Server --> UC8
+Server --> UC9
+Server --> UC10
+
+@enduml
