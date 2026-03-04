@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RobotComands", "RobotComands.vcxproj", "{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Debug|x64.ActiveCfg = Debug|x64
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Debug|x64.Build.0 = Debug|x64
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Debug|x86.ActiveCfg = Debug|Win32
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Debug|x86.Build.0 = Debug|Win32
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Release|x64.ActiveCfg = Release|x64
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Release|x64.Build.0 = Release|x64
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Release|x86.ActiveCfg = Release|Win32
+		{A5F80CF1-D33F-4EA5-B3D9-939C47866ABA}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F23ECE6F-8DDA-42A4-84A3-1DFAE6298DA3}
+	EndGlobalSection
+EndGlobal
