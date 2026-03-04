@@ -1,0 +1,36 @@
+@startuml
+title Прецедент: Запустить программу (человек ставит стаканчик на робота)
+
+actor "Человек" as Human
+participant "Программа" as App
+participant "Камера" as Cam
+participant "Сервер" as Server
+participant "Робот" as Robot
+participant "Стаканчик" as Cup
+
+Human -> App : Запустить программу
+App -> Cam : Включить наблюдение
+Cam -> Server : Передать видеопоток/кадры
+
+Server -> Server : Найти робота по контрастному цвету
+Server -> Server : Найти стаканчик на кадре
+Server -> Cup : Определить местоположение
+Server -> Server : Построить маршрут к стаканчику
+
+Server -> Robot : Команда: ехать по маршруту
+Robot --> Server : Подъехал к стаканчику
+
+Server -> App : Сообщить: робот прибыл
+App --> Human : Поставьте стаканчик на робота
+
+Human -> Robot : Ставит стаканчик на робота
+Robot --> Server : Стаканчик установлен
+
+Server -> Server : Построить маршрут на базу
+Server -> Robot : Команда: вернуться на место
+
+Robot --> Server : Прибыл на базу
+Server -> App : Сообщить: задача выполнена
+App --> Human : Статус: выполнено
+
+@enduml
