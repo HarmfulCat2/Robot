@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <thread>
@@ -24,18 +24,18 @@ private:
 
 public:
     void forward(int time_ms) override {
-        std::cout << "[Engine] forward for " << time_ms << " ms\n";
         wait_ms(time_ms);
+        std::cout << "[Engine] forward for " << time_ms << " ms\n";
     }
 
     void right(int time_ms) override {
-        std::cout << "[Engine] right for " << time_ms << " ms\n";
         wait_ms(time_ms);
+        std::cout << "[Engine] right for " << time_ms << " ms\n";
     }
 
     void left(int time_ms) override {
-        std::cout << "[Engine] left for " << time_ms << " ms\n";
         wait_ms(time_ms);
+        std::cout << "[Engine] left for " << time_ms << " ms\n";
     }
 
     void stop() override {
@@ -99,7 +99,7 @@ private:
         return s;
     }
 
-    bool parseAndExecute(const std::string& msg) {
+    bool parseAndExecute(std::string msg) {
         std::istringstream iss(msg);
         std::string cmd;
         iss >> cmd;
@@ -113,9 +113,9 @@ private:
         int time_ms = 0;
         if (!(iss >> time_ms)) return false;
 
-        if (cmd == "forward") { engine_.forward(time_ms); return true; }
-        if (cmd == "right") { engine_.right(time_ms);   return true; }
-        if (cmd == "left") { engine_.left(time_ms);    return true; }
+        if (cmd == "forward") { engine_.forward(time_ms); engine_.stop(); return true; }
+        if (cmd == "right") { engine_.right(time_ms);   engine_.stop(); return true; }
+        if (cmd == "left") { engine_.left(time_ms);    engine_.stop(); return true; }
 
         return false;
     }
@@ -124,8 +124,7 @@ private:
 int main() {
     FooEngine engine;
     FooCmdReceiver receiver;
-    ControlSystem cs(receiver, engine);
-    cs.run();
+    ControlSystem system(receiver, engine);
+    system.run();
     return 0;
-
 }
