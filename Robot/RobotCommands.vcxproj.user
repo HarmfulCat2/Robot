@@ -3,4 +3,5 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerDebuggerType>GPUOnly</LocalDebuggerDebuggerType>
   </PropertyGroup>
+
 </Project>
