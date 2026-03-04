@@ -1,0 +1,42 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+abstract class AEngine {
+  +forward(time_ms: int) : void
+  +right(time_ms: int) : void
+  +left(time_ms: int) : void
+  +stop() : void
+}
+
+class FooEngine {
+  -wait_ms(time_ms: int) : void
+  +forward(time_ms: int) : void
+  +right(time_ms: int) : void
+  +left(time_ms: int) : void
+  +stop() : void
+}
+
+abstract class ACmdReceiver {
+  +receive() : string
+}
+
+class FooCmdReceiver {
+  +receive() : string
+}
+
+class ControlSystem {
+  -receiver_ : ACmdReceiver&
+  -engine_ : AEngine&
+  +ControlSystem(receiver: ACmdReceiver&, engine: AEngine&)
+  +run() : void
+  -parseAndExecute(msg: string) : bool
+  {static} -trim(s: string&) : void
+  {static} -toLowerCopy(s: string) : string
+}
+
+FooEngine --|> AEngine
+FooCmdReceiver --|> ACmdReceiver
+
+ControlSystem *-- ACmdReceiver : receiver_
+ControlSystem *-- AEngine : engine_
+@enduml
